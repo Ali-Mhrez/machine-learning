@@ -21,19 +21,19 @@ def gradient_descent_multi(X, y, theta, alpha, num_iters):
         # Hint: While debugging, it can be useful to print out the values
         #       of the cost function (computeCostMulti) and gradient here.
         
-        # predictions = X.dot(theta)
-        # errors = predictions - y
-        # theta_ -= (alpha/m) * X.T.dot(errors)
+        predictions = X.dot(theta)
+        errors = predictions - y
+        theta -= (alpha/m) * X.T.dot(errors)
         
-        temp = [0 for j in range(X.shape[1])]
-        for j in range(m):
-            pred = X[j].dot(theta)
-            error = pred - y[j]
-            for k in range(X.shape[1]):
-                temp[k] += error * X[j,k]
+        # temp = [0 for j in range(X.shape[1])]
+        # for j in range(m):
+        #     pred = X[j].dot(theta)
+        #     error = pred - y[j]
+        #     for k in range(X.shape[1]):
+        #         temp[k] += error * X[j,k]
         
-        for j in range(len(theta)):
-            theta[j] -= (alpha / m) * temp[j]
+        # for j in range(len(theta)):
+        #     theta[j] -= (alpha / m) * temp[j]
             
         J_history[i] = compute_cost(X, y, theta)    # save the cost
 
