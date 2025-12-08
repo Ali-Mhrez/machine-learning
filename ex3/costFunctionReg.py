@@ -22,7 +22,8 @@ def costFunctionReg(theta, X, y, _lambda):
     #               derivatives of the cost w.r.t. each parameter in theta
 
     p = sigmoid(X.dot(theta))
-    J = (-1 / m) * sum(y * log(p) + (1-y) * log(1-p)) + (_lambda / (2 * m)) * sum(theta[1:]**2)
+    J = (-1 / m) * (y.dot(log(p)) + (1-y).dot(log(1-p))) + (_lambda / (2 * m)) * theta[1:].dot(theta[1:])
+    # J = (-1 / m) * sum(y * log(p) + (1-y) * log(1-p)) + (_lambda / (2 * m)) * sum(theta[1:]**2)
 
     errors = p - y
     grad = (1/m) * X.T.dot(errors)

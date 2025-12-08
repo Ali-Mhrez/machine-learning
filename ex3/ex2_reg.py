@@ -118,7 +118,7 @@ def ex2_reg():
     initial_theta = zeros(X.shape[1], dtype=float)
 
     # Set regularization parameter lambda to 1 (you should vary this)
-    _lambda = 1
+    _lambda = 0
 
     # Set Options
     options = {"maxiter": 1800}

@@ -25,9 +25,8 @@ def costFunction(theta, X, y):
     #
     
     pred = sigmoid(X.dot(theta))
-    epsilon = 1e-5
-    J = (1 / m) * sum(- y * log(pred + epsilon) - (1 - y) * log(1 - pred + epsilon))
-    print((y * pred).shape)
+    J = (-1/m) * (y.dot(log(pred)) + (1 - y).dot(log(1 - pred)))
+    # J = (1 / m) * sum(- y * log(pred + epsilon) - (1 - y) * log(1 - pred + epsilon))
     
     error = pred - y
     grad = (1/m) * X.T.dot(error)
