@@ -7,7 +7,7 @@ def main():
     """
     #  Part 1
     #  Logistic regression via OneVsAll
-    # ex3()
+    ex3()
 
     if input('Press ENTER to start the next part. (press [q] to exit here)\n') == 'q':
         print('Exit')
