@@ -26,9 +26,15 @@ def predict_one_vs_all(all_theta, X):
           p = np.argmax(output)  #  returns the index of the output vector's maximum element
           ```
     """
-
-    x = np.c_[np.ones((m, 1)), X]
-    preds = sigmoid(x.dot(all_theta.T))
+    preds = np.zeros((m, num_labels))
+    for i in range(num_labels):
+          theta = all_theta[i]
+          preds[:, i] = sigmoid(X.dot(theta))
     p = np.argmax(preds, axis=1)
+    
+    x = np.c_[np.ones((m, 1)), X]
+    preds2 = sigmoid(x.dot(all_theta.T))
+    assert np.array_equal(preds, preds2), "Predictions do not match!"
+#     p = np.argmax(preds, axis=1)
 
     return p

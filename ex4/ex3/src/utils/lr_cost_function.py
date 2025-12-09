@@ -52,7 +52,8 @@ def lr_cost_function(theta, x, y, lam, alpha=1):
     """
 
     h_x = sigmoid(x.dot(theta))
-    cost = (-1/m) * sum(y * np.log(h_x) + (1-y) * np.log(1-h_x)) + lam/(2*m) * sum(theta[1:]**2)
+    cost = (-1/m) * (y.dot(np.log(h_x)) + (1-y).dot(np.log(1-h_x))) + (lam/(2*m)) * theta[1:].T.dot(theta[1:])
+#     cost = (-1/m) * sum(y * np.log(h_x) + (1-y) * np.log(1-h_x)) + lam/(2*m) * sum(theta[1:]**2)
     
     error = h_x - y
     gradient = (1/m) * x.T.dot(error)
