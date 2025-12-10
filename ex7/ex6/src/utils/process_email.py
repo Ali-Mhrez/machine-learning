@@ -99,10 +99,13 @@ def process_email(email_contents):
     # Note: You can use s1 == s2 to compare two strings (s1 and
     #       s2). It will return True only if the two strings are equivalent.
     #
-    for i in range(1, len(vocab_list)+1):
-      if s == vocab_list[i]:
-        word_indices.append(i)
-        break
+    if s in vocab_list:
+      index = vocab_list.index(s) + 1
+      word_indices.append(index)
+    # for i in range(1, len(vocab_list)+1):
+    #   if s == vocab_list[i]:
+    #     word_indices.append(i)
+    #     break
 
 
     # =============================================================
